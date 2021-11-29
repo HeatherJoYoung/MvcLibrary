@@ -1,3 +1,5 @@
+#nullable enable
+
 namespace MvcLibrary.Models
 {
     public class ErrorViewModel

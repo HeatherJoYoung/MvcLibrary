@@ -14,13 +14,13 @@ namespace MvcLibrary.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<MvcLibraryContext>>()))
             {
-                // Look for any movies.
-                if (context.Book.Any())
+                // Look for any library items.
+                if (context.LibraryItems.Any())
                 {
                     return;   // DB has been seeded
                 }
 
-                context.Book.AddRange(
+                context.LibraryItems.AddRange(
                     new Book
                     {
                         Title = "A Simple Plan",
@@ -29,7 +29,6 @@ namespace MvcLibrary.Models
                         Genre = "Suspense",
                         Pages = 200
                     },
-
                     new Book
                     {
                         Title = "Sneaky People",
@@ -38,7 +37,6 @@ namespace MvcLibrary.Models
                         Genre = "Contemporary Literature",
                         Pages = 320
                     },
-
                     new Book
                     {
                         Title = "True Confessions",
@@ -47,7 +45,6 @@ namespace MvcLibrary.Models
                         Genre = "Mystery",
                         Pages = 200
                     },
-
                     new Book
                     {
                         Title = "The Quiet American",
@@ -55,7 +52,39 @@ namespace MvcLibrary.Models
                         PublicationDate = DateTime.Parse("1955-2-12"),
                         Genre = "Political Fiction",
                         Pages = 200
-                    }
+                    },
+                    new Album
+                    { 
+                        Title = "Country Stuff",
+                        Artist = "Walker Hayes",
+                        IsSoloArtist = true,
+                        PublicationDate = DateTime.Parse("2021-8-2"),
+                        Genre = "Country"
+                    },
+                     new Movie
+                     {
+                         Title = "Seven Samurai",
+                         Director = "Akira Kurosawa",
+                         Actor = "Toshiro Mifune",
+                         PublicationDate = DateTime.Parse("1954-1-1"),
+                         Genre = "Action"
+                     },
+                     new Movie
+                     { 
+                        Title = "Do the Right Thing",
+                        Director = "Spike Lee",
+                        Actor = "Ossie Davis",
+                        PublicationDate = DateTime.Parse("1989-1-1"),
+                        Genre = "Comedy"
+                     },
+                     new Movie
+                     {
+                         Title = "Once Upon a Time in Hollywood",
+                         Director = "Quentin Tarantino",
+                         Actor = "Brad Pitt",
+                         PublicationDate = DateTime.Parse("2019-7-26"),
+                         Genre = "Drama"
+                     }
                 );
                 context.SaveChanges();
             }

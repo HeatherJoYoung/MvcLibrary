@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using MvcLibrary.Models;
 
 namespace MvcLibrary.Data
 {
     public class MvcLibraryContext : DbContext
     {
-        public MvcLibraryContext (DbContextOptions<MvcLibraryContext> options)
+        public MvcLibraryContext(DbContextOptions<MvcLibraryContext> options)
             : base(options)
         {
         }
 
-        public DbSet<MvcLibrary.Models.Book> Book { get; set; }
+        public DbSet<Album> Albums { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<LibraryItem> LibraryItems { get; set; }
+        public DbSet<Movie> Movies { get; set; }
     }
 }
