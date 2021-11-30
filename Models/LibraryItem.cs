@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-#nullable enable
 
 namespace MvcLibrary.Models
 {
@@ -11,8 +10,9 @@ namespace MvcLibrary.Models
     public class LibraryItem
     {
         [Key]
-        public int ID { get; private set; }
+        public int ID { get; set; }
 
+        #nullable enable
         [Required]
         public string? Title { get; set; }
 
@@ -23,6 +23,7 @@ namespace MvcLibrary.Models
 
         public string? Genre { get; set; }
 
+        #nullable disable
         [Required]
         public ItemType Type { get; set; }
 

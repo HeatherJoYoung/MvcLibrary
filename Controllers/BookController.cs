@@ -75,12 +75,12 @@ namespace MvcLibrary.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Title,Author,PublicationDate,Genre,Pages")] Book book)
+        public async Task<IActionResult> Edit(int id, [Bind("Title,Author,ID,PublicationDate,Genre,Pages")] Book book)
         {
-            //if (id != book.ID)
-            //{
-            //    return NotFound();
-            //}
+            if (id != book.ID)
+            {
+                return NotFound();
+            }
 
             if (ModelState.IsValid)
             {
